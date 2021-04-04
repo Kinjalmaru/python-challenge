@@ -5,9 +5,10 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
 output_path = os.path.join( 'Analysis', 'Financial_analysis.txt')
 
 with open(csvpath) as csvfile:
-  
+#open csv and skip header  
     csvreader = csv.reader(csvfile, delimiter = ',')
     csv_header= next(csvreader)
+#declare variables
     Totalmonths = 1
     Greatest = 0
     Lowest = 999999999
@@ -20,6 +21,7 @@ with open(csvpath) as csvfile:
     current = []
     average = 0
 
+#loop throuh rows
     for row in csvreader:
         Totalmonths = Totalmonths + 1
         Total += int(row[1])
@@ -40,7 +42,7 @@ with open(csvpath) as csvfile:
         average = sum(net_change_list)/len(net_change_list)
 
 
-
+#Print output
     Financial_Analysis = (
         f"Financial Analysis\n"
         f"-------------------------------\n"
@@ -51,6 +53,7 @@ with open(csvpath) as csvfile:
         f"Lowest Decrease in Profits :" + str(Lowest_month) + " ($" + str(Lowest) + ")")
     print(Financial_Analysis)
 
+#Write to txt file
     with open(output_path, "w") as textFile:
             
        
