@@ -56,19 +56,7 @@ with open(csvpath) as csvfile:
     print(winner)
 
     with open(output_path, "w") as textFile:
-    #     Election_Results(
-
-    # final_result = (
-    #     "Election Results\n"
-    #     "------------------------\n"
-    #     "Total Votes: {Totalvotes}\n"
-    #     "------------------------\n"
-    #     )   
-    # winner=(
-    #     "------------------------\n"
-    #     "winner: {winning_candidate}\n"
-    #     "------------------------\n"
-    #         ))
+ 
         textFile.write(final_result)
         for key in candidate_votes:
             votes = candidate_votes.get(key)
